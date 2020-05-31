@@ -61,6 +61,17 @@ class FacturasController extends Controller
      */
     public function store(Request $request)
     {
+
+        //Validaciones
+
+        request()->validate([
+
+            'num_factura' => 'required|unique:facturas',
+            'proveedor_id' => 'required',
+            'fecha' => 'required',
+
+            ]);
+
         
         $requestData = $request->all();
                 if ($request->hasFile('foto')) {
@@ -70,7 +81,7 @@ class FacturasController extends Controller
 
         Factura::create($requestData);
 
-        return redirect('facturas')->with('info', 'factura guardad con éxito!');
+        return redirect('facturas')->with('info', 'factura guardada con éxito!');
     }
 
     /**
@@ -111,6 +122,14 @@ class FacturasController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        request()->validate([
+
+            'num_factura' => 'required',
+            'fecha' => 'required',
+            'status' => 'required'
+
+            ]);
         
         $requestData = $request->all();
                 if ($request->hasFile('foto')) {
@@ -122,6 +141,19 @@ class FacturasController extends Controller
         $factura->update($requestData);
 
         return redirect('facturas')->with('info', 'factura actualizada con éxito!');
+    }
+
+     public function pay($id)
+    {
+
+        
+        $factura = Factura::findOrFail($id);
+
+        if ($factura->status ==1) {
+            return redirect('facturas')->with('info', 'factura ya ha sido pagada!');
+        }else
+
+        return view('facturas.pay', compact('factura'));
     }
 
     /**

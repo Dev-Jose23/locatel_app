@@ -25,7 +25,7 @@
                           <div class="form-group {{ $errors->has('proveedor_id') ? 'has-error' : ''}}">
                             <label for="proveedor_id">Proveedor</label>
 
-                              <select name="proveedor_id" id="inputProveedor_id" class="form-control" required="required">
+                              <select name="proveedor_id" id="inputProveedor_id" class="form-control">
 
                                 <option value="">Seleccione un proveedor</option>
                                 @foreach( $proveedors as $item )
@@ -48,10 +48,10 @@
                                <input class="form-control" name="foto" type="file" id="foto">
                           </div>
 
-                          <div class="checkbox">
+                          <!-- <div class="checkbox">
                                  <label for="status">
                                  <input class="" name="status" type="checkbox" id="status" value="1" > Pagar factura</label>
-                          </div>
+                          </div> -->
                           
 
 

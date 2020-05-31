@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 Route::resource('proveedors', 'ProveedorsController');
 Route::resource('facturas', 'FacturasController');
+Route::get('facturas/{factura}/pay', 'FacturasController@pay');

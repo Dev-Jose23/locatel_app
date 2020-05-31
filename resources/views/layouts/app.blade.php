@@ -31,8 +31,9 @@
         }
 
         .footer{
-            background-color: #737373;
-            padding: 20px 0 20px 0;
+            background-color: #000;
+            color: #fff;
+            padding: 10px 0 10px 0;
             position: fixed;
             bottom: 0;
             width: 100%
@@ -46,7 +47,7 @@
 
 
     <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-light bg-ligh">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand active" href="{{ url('/') }}"> <i class="fa fa-industry active"> Farmacia Yerba Buena, C.A</i></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -57,8 +58,16 @@
       <li class="nav-item active">
         <!-- <a class="nav-link" href="{{url('/') }}"><i class="fa fa-home"> Home</i><span class="sr-only">(current)</span></a> -->
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{ url('/facturas') }}"><i class="fa fa-book"> Facturas</i></a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="{{ url('/facturas') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-user-circle"> Facturas</i>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{ url('/facturas') }}"><i class="fa fa-list"> Lista de facturas</i></a>
+          <a class="dropdown-item" href="{{ url('/facturas/create') }}"><i class="fa fa-book"> New factura</i></a>
+          <div class="dropdown-divider"></div>
+          <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+        </div>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="{{ url('/proveedors') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -75,10 +84,10 @@
         <!-- <a class="nav-link disabled" href="#">Disabled</a> -->
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
+   <!--  <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" value="{{ request('search') }}" name="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    </form> -->
   </div>
 </nav>
 
@@ -100,8 +109,8 @@
       
     @if(count($errors))
       <div class="container">
-        <div class="row justify-content-end">
-          <div class="col-md-4 col-md-push-8">
+        <div class="row">
+          <div class="col-md-4">
             <div class="alert alert-danger">
               <ul>
                 @foreach($errors->all() as $error)

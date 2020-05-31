@@ -6,9 +6,9 @@
           
             <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header">Edit factura #{{ $factura->id }}</div>
+                    <div class="card-header">Pagar factura #{{ $factura->num_factura }}</div>
                     <div class="card-body">
-                        <a href="{{ url('/facturas') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/facturas') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Atrás</button></a>
                         <br />
                         <br />
 
@@ -34,15 +34,15 @@
                                <input class="form-control" name="foto" type="file" id="foto">
                           </div> -->
 
-                          <!-- <div class="form-group">
+                          <div class="form-group">
                                  <label for="status">
                                  <input class="form-group" name="status" type="checkbox" id="status" value="1" > Pagar factura</label>
                           </div>
-                           -->
+                          
 
 
                           <div class="form-group">
-                               <input class="btn btn-primary" type="submit" value="Actualizar">
+                               <input class="btn btn-primary" type="submit" value="Pagar factura">
                           </div>
 
                         </form>
