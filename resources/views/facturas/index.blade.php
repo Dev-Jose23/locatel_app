@@ -48,27 +48,33 @@
                                         <td>{{ $item->fecha }}</td>
                                          <td>
                                              @if($item->status ==1)
-                                                Pagada
+                                                <li class="fa fa-check-circle"> Factura pagada</li>
                                                 @else
-                                                <a href="{{ url('/facturas/' . $item->id . '/edit') }}" class="btn btn-info btn-sm">Pagar</a>
+                                                <li class="fa fa-credit-card"> Factura por pagar</li>
                                                 @endif
                                          </td>
                                         <td>
-                                            <a href="{{ url('/facturas/' . $item->id) }}" title="View factura"><button class="btn btn-info btn-sm"><i class="fa fa-eye fa-lg" aria-hidden="true"></i></button></a>
-                                            <a href="{{ url('/facturas/' . $item->id . '/edit') }}" title="Edit factura"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></button></a>
+                                            <a href="{{ url('/facturas/' . $item->id) }}" title="Ver factura"><button class="btn btn-info btn-sm"><i class="fa fa-eye fa-lg" aria-hidden="true"></i></button></a>
+                                            <a href="{{ url('/facturas/' . $item->id . '/edit') }}" title="Editar factura"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></button></a>
 
                                             <form method="POST" action="{{ url('/facturas' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete factura" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i> </button>
+                                                <button type="submit" class="btn btn-danger btn-sm" title="Eliminar factura" onclick="return confirm(&quot;Confirm Borrar?&quot;)"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i> </button>
                                             </form>
+
+                                             <a href="{{ url('/facturas/' . $item->id . '/edit') }}" title="Pagar factura"><button class="btn btn-dark btn-sm"><i class="fa fa-credit-card fa-lg" aria-hidden="true"></i></button></a>
                                         </td>
+                                          
+                                           
+                                        
+                                        
 
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
-                            <div class="pagination-wrapper"> {!! $facturas->appends(['search' => Request::get('search')])->render() !!} </div>
+                            <div class="pagination-wrapper"> {{ $facturas->render() }} </div>
                         </div>
 
                     </div>
