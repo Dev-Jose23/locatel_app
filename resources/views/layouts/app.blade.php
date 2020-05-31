@@ -43,9 +43,11 @@
     </style>
 </head>
 <body>
+
+
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-light bg-ligh">
-  <a class="navbar-brand" href="{{ url('/') }}">Farmacia Yerba Buena, C.A</a>
+  <a class="navbar-brand active" href="{{ url('/') }}"> <i class="fa fa-industry active"> Farmacia Yerba Buena, C.A</i></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -53,7 +55,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="{{url('/') }}"><i class="fa fa-home"> Home</i><span class="sr-only">(current)</span></a>
+        <!-- <a class="nav-link" href="{{url('/') }}"><i class="fa fa-home"> Home</i><span class="sr-only">(current)</span></a> -->
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ url('/facturas') }}"><i class="fa fa-book"> Facturas</i></a>
@@ -80,7 +82,37 @@
   </div>
 </nav>
 
+
+
         <main class="py-4 body">
+          <!-- Mensaje Flash -->
+  @if(session('info'))
+      <div class="container">
+        <div class="row justify-content-end">
+          <div class="col-md-4 ">
+            <div class="alert alert-success">
+             <i class="fa fa-check-circle"> {{ session('info') }}</i>
+            </div>
+          </div>
+        </div>
+      </div>
+    @endif
+      
+    @if(count($errors))
+      <div class="container">
+        <div class="row justify-content-end">
+          <div class="col-md-4 col-md-push-8">
+            <div class="alert alert-danger">
+              <ul>
+                @foreach($errors->all() as $error)
+                  <li>{{ $error }}</li>
+                @endforeach
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    @endif
             @yield('content')
         </main>
     </div>

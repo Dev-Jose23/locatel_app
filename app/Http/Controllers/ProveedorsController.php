@@ -57,7 +57,7 @@ class proveedorsController extends Controller
         
         Proveedor::create($requestData);
 
-        return redirect('proveedors')->with('flash_message', 'proveedor added!');
+        return redirect('proveedors')->with('info', 'proveedor added!');
     }
 
     /**
@@ -104,7 +104,7 @@ class proveedorsController extends Controller
         $proveedor = Proveedor::findOrFail($id);
         $proveedor->update($requestData);
 
-        return redirect('proveedors')->with('flash_message', 'proveedor updated!');
+        return redirect('proveedors')->with('info', 'proveedor updated!');
     }
 
     /**
@@ -118,6 +118,6 @@ class proveedorsController extends Controller
     {
         Proveedor::destroy($id);
 
-        return redirect('proveedors')->with('flash_message', 'proveedor deleted!');
+        return redirect('proveedors')->with('info', 'proveedor deleted!');
     }
 }

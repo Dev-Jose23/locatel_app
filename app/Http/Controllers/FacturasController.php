@@ -70,7 +70,7 @@ class FacturasController extends Controller
 
         Factura::create($requestData);
 
-        return redirect('facturas')->with('flash_message', 'factura added!');
+        return redirect('facturas')->with('info', 'factura guardad con éxito!');
     }
 
     /**
@@ -121,7 +121,7 @@ class FacturasController extends Controller
         $factura = Factura::findOrFail($id);
         $factura->update($requestData);
 
-        return redirect('facturas')->with('flash_message', 'factura updated!');
+        return redirect('facturas')->with('info', 'factura actualizada con éxito!');
     }
 
     /**
@@ -135,6 +135,6 @@ class FacturasController extends Controller
     {
         Factura::destroy($id);
 
-        return redirect('facturas')->with('flash_message', 'factura deleted!');
+        return redirect('facturas')->with('info', 'factura eliminada exitosamente!');
     }
 }

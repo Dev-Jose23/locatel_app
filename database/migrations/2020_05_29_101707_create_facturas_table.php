@@ -20,6 +20,7 @@ class CreateFacturasTable extends Migration
             $table->integer('proveedor_id')->nullable();
             $table->string('fecha');
             $table->string('foto')->nullable();
+            $table->boolean('status')->nullable();
         
         });
     }

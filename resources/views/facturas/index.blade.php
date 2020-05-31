@@ -34,6 +34,7 @@
                                         <th>Código proveedor</th>
                                         <th>Proveedor</th>
                                         <th>Fecha de ingreso</th>
+                                        <th>Estatus</th>
                                         <th colspan="2">Actions</th>
                                     </tr>
                                 </thead>
@@ -45,6 +46,13 @@
                                         <td>{{ $item->proveedor->cod_proveedor }}</td>
                                         <td>{{ $item->proveedor->proveedor }}</td>
                                         <td>{{ $item->fecha }}</td>
+                                         <td>
+                                             @if($item->status ==1)
+                                                Pagada
+                                                @else
+                                                <a href="{{ url('/facturas/' . $item->id . '/edit') }}" class="btn btn-info btn-sm">Pagar</a>
+                                                @endif
+                                         </td>
                                         <td>
                                             <a href="{{ url('/facturas/' . $item->id) }}" title="View factura"><button class="btn btn-info btn-sm"><i class="fa fa-eye fa-lg" aria-hidden="true"></i></button></a>
                                             <a href="{{ url('/facturas/' . $item->id . '/edit') }}" title="Edit factura"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></button></a>
@@ -55,6 +63,7 @@
                                                 <button type="submit" class="btn btn-danger btn-sm" title="Delete factura" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i> </button>
                                             </form>
                                         </td>
+
                                     </tr>
                                 @endforeach
                                 </tbody>

@@ -12,19 +12,38 @@
                         <br />
                         <br />
 
-                        @if ($errors->any())
-                            <ul class="alert alert-danger">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        @endif
 
                         <form method="POST" action="{{ url('/facturas/' . $factura->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             {{ csrf_field() }}
 
-                            @include ('facturas.form', ['formMode' => 'edit'])
+                            <div class="form-group {{ $errors->has('num_factura') ? 'has-error' : ''}}">
+                                 <label for="num_factura" class="control-label">{{ 'Num Factura' }}</label>
+                                 <input class="form-control" name="num_factura" type="number" id="num_factura" value="{{ $factura->num_factura }}">
+                          </div>
+                          
+                
+
+                           <div class="form-group {{ $errors->has('fecha') ? 'has-error' : ''}}">
+                                 <label for="fecha" class="control-label">{{ ' Fecha' }}</label>
+                                 <input class="form-control" name="fecha" type="text" id="fecha" value="{{ $factura->fecha }}">
+                          </div>
+                          
+                          <!-- <div class="form-group {{ $errors->has('foto') ? 'has-error' : ''}}">
+                               <label for="foto" class="control-label">{{ 'Foto' }}</label>
+                               <input class="form-control" name="foto" type="file" id="foto">
+                          </div> -->
+
+                          <div class="form-group">
+                                 <label for="status">
+                                 <input class="form-group" name="status" type="checkbox" id="status" value="1" > Pagar factura</label>
+                          </div>
+                          
+
+
+                          <div class="form-group">
+                               <input class="btn btn-primary" type="submit" value="Actualizar">
+                          </div>
 
                         </form>
 

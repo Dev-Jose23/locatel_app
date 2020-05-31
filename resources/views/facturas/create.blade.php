@@ -13,13 +13,7 @@
                         <br />
                         <br />
 
-                        @if ($errors->any())
-                            <ul class="alert alert-danger">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        @endif
+                        
 
                         <form method="POST" action="{{ url('/facturas') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
                             {{ csrf_field() }}
@@ -52,6 +46,11 @@
                           <div class="form-group {{ $errors->has('foto') ? 'has-error' : ''}}">
                                <label for="foto" class="control-label">{{ 'Foto' }}</label>
                                <input class="form-control" name="foto" type="file" id="foto">
+                          </div>
+
+                          <div class="checkbox">
+                                 <label for="status">
+                                 <input class="" name="status" type="checkbox" id="status" value="1" > Pagar factura</label>
                           </div>
                           
 
