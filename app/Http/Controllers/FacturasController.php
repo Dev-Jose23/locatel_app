@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\Factura;
+use Carbon\Carbon;
 
 use App\proveedor;
 use Illuminate\Http\Request;
@@ -24,16 +25,19 @@ class FacturasController extends Controller
 
         if (!empty($keyword)) {
             $facturas = Factura::where('num_factura', 'LIKE', "%$keyword%")
-                ->orWhere('proveedor', 'LIKE', "%$keyword%")
+                ->orWhere('proveedor_id', 'LIKE', "%$keyword%")
                 ->orWhere('fecha', 'LIKE', "%$keyword%")
-                ->orWhere('foto', 'LIKE', "%$keyword%")
-                ->orWhere('status', 'LIKE', "%$keyword%")
+
                 ->latest()->paginate($perPage);
         } else {
             $facturas = Factura::latest()->paginate($perPage);
         }
 
+        // $fecha = Factura::select('created_at');
+
         return view('facturas.index', compact('facturas'));
+
+        
     }
 
     /**

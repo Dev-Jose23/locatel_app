@@ -43,6 +43,11 @@
                                <!-- <label for="proveedor_id" class="control-label">{{ 'Proveedor' }}</label>
                                <input class="form-control" name="proveedor_id" type="custom-select" id="proveedor_id"> -->
                           </div>
+
+                           <div class="form-group {{ $errors->has('fecha') ? 'has-error' : ''}}">
+                                 <label for="fecha" class="control-label">{{ 'Fecha' }}</label>
+                                 <input class="form-control" name="fecha" type="text" id="fecha">
+                          </div>
                           
                           <div class="form-group {{ $errors->has('foto') ? 'has-error' : ''}}">
                                <label for="foto" class="control-label">{{ 'Foto' }}</label>

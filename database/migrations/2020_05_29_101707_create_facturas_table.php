@@ -18,6 +18,7 @@ class CreateFacturasTable extends Migration
             $table->timestamps();
             $table->integer('num_factura')->nullable();
             $table->integer('proveedor_id')->nullable();
+            $table->string('fecha');
             $table->string('foto')->nullable();
         
         });

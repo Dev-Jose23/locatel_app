@@ -44,15 +44,15 @@
                                         <td>{{ $item->num_factura }}</td>
                                         <td>{{ $item->proveedor->cod_proveedor }}</td>
                                         <td>{{ $item->proveedor->proveedor }}</td>
-                                        <td>{{ $item->created_at }}</td>
+                                        <td>{{ $item->fecha }}</td>
                                         <td>
-                                            <a href="{{ url('/facturas/' . $item->id) }}" title="View factura"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/facturas/' . $item->id . '/edit') }}" title="Edit factura"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="{{ url('/facturas/' . $item->id) }}" title="View factura"><button class="btn btn-info btn-sm"><i class="fa fa-eye fa-lg" aria-hidden="true"></i></button></a>
+                                            <a href="{{ url('/facturas/' . $item->id . '/edit') }}" title="Edit factura"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></button></a>
 
                                             <form method="POST" action="{{ url('/facturas' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete factura" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete factura" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i> </button>
                                             </form>
                                         </td>
                                     </tr>
@@ -67,4 +67,7 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('footer')
 @endsection

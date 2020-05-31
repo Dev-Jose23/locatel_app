@@ -8,12 +8,14 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
+                background-color: #D9D9D9;
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
@@ -77,14 +79,16 @@
                 </div>
             @endif
 
-            <div class="content">
+            <div class="content justify-content">
                 <div class="title m-b-md">
-                    Laravel
+                    Bienvenido a<br>
+                    
+                    Farmacia Yerba Buena, C.A
                 </div>
 
                 <div class="links">
-                    <a href="{{ url('/facturas') }}">Módulo de facturas</a>
-                    <a href="{{ url('/proveedors') }}">Módulo de proveedores</a>
+                    <a href="{{ url('/facturas') }}"><i class="fa fa-book fa-3x"> </i> Módulo de facturas</a>
+                    <a href="{{ url('/proveedors') }}"> <i class="fa fa-user-circle fa-3x"></i>Módulo de proveedores</a>
                     
                 </div>
             </div>

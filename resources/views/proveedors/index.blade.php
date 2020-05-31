@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
            
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">Proveedors</div>
                     <div class="card-body">
@@ -26,25 +26,25 @@
                         <br/>
                         <br/>
                         <div class="table-responsive">
-                            <table class="table">
-                                <thead>
+                            <table class="table table-hover ">
+                                <thead class="text-center ">
                                     <tr>
                                         <th>#</th><th>Cod Proveedor</th><th>Proveedor</th><th>Correo</th><th>Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class="text-center">
                                 @foreach($proveedors as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->cod_proveedor }}</td><td>{{ $item->proveedor }}</td><td>{{ $item->correo }}</td>
                                         <td>
-                                            <a href="{{ url('/proveedors/' . $item->id) }}" title="View proveedor"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/proveedors/' . $item->id . '/edit') }}" title="Edit proveedor"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="{{ url('/proveedors/' . $item->id) }}" title="View proveedor"><button class="btn btn-info btn-sm"><i class="fa fa-eye fa-lg" aria-hidden="true"></i></button></a>
+                                            <a href="{{ url('/proveedors/' . $item->id . '/edit') }}" title="Edit proveedor"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></button></a>
 
                                             <form method="POST" action="{{ url('/proveedors' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete proveedor" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete proveedor" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></button>
                                             </form>
                                         </td>
                                     </tr>
