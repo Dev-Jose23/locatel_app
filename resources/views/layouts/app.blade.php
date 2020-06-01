@@ -59,8 +59,8 @@
         <!-- <a class="nav-link" href="{{url('/') }}"><i class="fa fa-home"> Home</i><span class="sr-only">(current)</span></a> -->
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="{{ url('/facturas') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fa fa-user-circle"> Facturas</i>
+        <a class="nav-link dropdown-toggle active" href="{{ url('/facturas') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-book"> Facturas</i>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="{{ url('/facturas') }}"><i class="fa fa-list"> Lista de facturas</i></a>
@@ -70,8 +70,8 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="{{ url('/proveedors') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fa fa-user-circle"> Proveedores</i>
+        <a class="nav-link dropdown-toggle active" href="{{ url('/proveedors') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-user-circle active"> Proveedores</i>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="{{ url('/proveedors') }}"><i class="fa fa-list"> Lista de proveedores</i></a>

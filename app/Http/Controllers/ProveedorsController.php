@@ -53,6 +53,17 @@ class proveedorsController extends Controller
     public function store(Request $request)
     {
         
+        //Validaciones
+
+        request()->validate([
+
+            'cod_proveedor' => 'required|unique:proveedors',
+            'proveedor' => 'required|unique:proveedors'
+            'correo' => 'required',
+            'telefono' => 'required',
+
+            ]);
+
         $requestData = $request->all();
         
         Proveedor::create($requestData);

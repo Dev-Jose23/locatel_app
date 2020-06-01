@@ -8,23 +8,17 @@
                 <div class="card">
                     <div class="card-header">Create New proveedor</div>
                     <div class="card-body">
-                        <a href="{{ url('/proveedors') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/proveedors') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Atrás</button></a>
                         <br />
                         <br />
 
-                        @if ($errors->any())
-                            <ul class="alert alert-danger">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        @endif
+                        
 
                         <form method="POST" action="{{ url('/proveedors') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
                             <div class="form-group {{ $errors->has('cod_proveedor') ? 'has-error' : ''}}">
-                                 <label for="num_factura" class="control-label">{{ 'Cod Proveedor' }}</label>
+                                 <label for="num_factura" class="control-label">{{ 'Código Proveedor' }}</label>
                                  <input class="form-control" name="cod_proveedor" type="number" id="cod_proveedor">
                           </div>
                           <div class="form-group {{ $errors->has('proveedor') ? 'has-error' : ''}}">
